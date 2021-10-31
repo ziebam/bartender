@@ -1,0 +1,25 @@
+{
+  "name": "bartender",
+  "version": "1.0.0",
+  "description": "TBA",
+  "main": "bartender.js",
+  "scripts": {
+    "test": "TBA"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TBA"
+  },
+  "keywords": [
+    "TBA"
+  ],
+  "author": "ziebam",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.3.0",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0"
+  }
+}
