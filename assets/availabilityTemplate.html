@@ -7,42 +7,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        * {
+        body {
+            margin: 0;
+            border: 3px solid white;
+            box-sizing: border-box;
+            width: 1920px;
+            height: auto;
             background-color: #121212;
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
         }
 
+        img {
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 64px;
+        }
+
         table {
+            table-layout: fixed;
             border-collapse: collapse;
             border-spacing: 0;
         }
 
         caption {
+            border-bottom: 3px solid #03DAC6;
+            padding: 15px;
+            font-size: 2.5rem;
+            font-weight: 400;
             color: #BB86FC;
         }
 
         th,
         td {
+            border: 1px solid #03DAC6;
+            padding: 10px;
             text-align: center;
             color: white;
-            border: 1px solid #03DAC6;
-            padding: 5px;
-        }
-
-        body {
-            width: 1920px;
-            height: auto;
-            border: 3px solid white;
-        }
-
-        caption {
-            border-bottom: 3px solid #03DAC6;
-            font-size: 2rem;
-            font-weight: 400;
         }
 
         th {
+            background-color: #010101;
             font-size: 1.25rem;
         }
 
@@ -50,22 +55,26 @@
             height: 64px;
         }
 
-        tr>td:last-child {
+        .availability {
+            width: calc(90%/7);
+        }
+
+        .timeslot {
+            width: 10%;
             background-color: #232323;
+        }
+
+        tr:last-child>td>img {
+            filter: blur(2px);
         }
 
         tr:last-child>td {
             background-color: #CF6679;
         }
 
-        tr:last-child>td:last-child {
-            background-color: #AD4457;
-        }
 
-        img {
-            width: 64px;
-            border-radius: 50%;
-            border: 2px solid white;
+        tr:last-child>td:last-child {
+            background-color: #9C3346;
         }
     </style>
 </head>
@@ -74,26 +83,26 @@
     <table width=100%>
         <caption>Availability for week ?? (??.??.?? to ??.??.??)</caption>
         <tr>
-            <th>MON</th>
-            <th>TUE</th>
-            <th>WED</th>
-            <th>THU</th>
-            <th>FRI</th>
-            <th>SAT</th>
-            <th>SUN</th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+            <th>SATURDAY</th>
+            <th>SUNDAY</th>
             <th>TIME</th>
         </tr>
         {{#each availability}}
         <tr>
             {{#each this}}
             {{#unless @last}}
-            <td>
+            <td class="availability">
                 {{#each this}}
                 <img src='{{this}}'>
                 {{/each}}
             </td>
             {{else}}
-            <td>
+            <td class="timeslot">
                 {{this}}
             </td>
             {{/unless}}

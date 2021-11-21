@@ -5,7 +5,7 @@ const nodeHTMLToImage = require('node-html-to-image');
 const generateImage = (availability) => {
 	nodeHTMLToImage({
 		output: './test.png',
-		html: fs.readFileSync("./assets/template.html", "utf8"),
+		html: fs.readFileSync("./assets/availabilityTemplate.html", "utf8"),
 		content: { availability: availability }
 	})
 }
