@@ -8,19 +8,17 @@ const nodeHTMLToImage = require('node-html-to-image');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('availability')
-    .setDescription('Shows the availability.')
-    .addSubcommand(subcommand =>
-      subcommand
-        .setName('current')
-        .setDescription('Shows the availability for the current week.'))
-    .addSubcommand(subcommand =>
-      subcommand
-        .setName('next')
-        .setDescription('Shows the availability for the next week.')),
+    .setDescription('Displays the availability table for the given week.')
+    .addStringOption(option =>
+      option.setName('week')
+        .setDescription('Which week to display the table for.')
+        .setRequired(true)
+        .addChoice('Availability for the current week.', 'current')
+        .addChoice('Availability for the next week.', 'next')),
   async execute(interaction) {
     const parsedJSON = JSON.parse(fs.readFileSync('./mock_availability.json', 'utf8'));
-    const nextWeek = interaction.options.getSubcommand() === 'next';
-    // REVIEW Default to current week for invalid subcommands.
+    const nextWeek = interaction.options.getString('week') === 'next';
+    // The only other allowed choice is "current", so we default to that when nextWeek is false.
     const availability = nextWeek ? parsedJSON.next : parsedJSON.current;
 
     const time = moment();
