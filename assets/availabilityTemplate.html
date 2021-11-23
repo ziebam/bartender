@@ -2,116 +2,116 @@
 <html lang="en">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            border: 3px solid white;
-            box-sizing: border-box;
-            width: 1920px;
-            height: auto;
-            background-color: #121212;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 300;
-        }
+  <style>
+    body {
+      margin: 0;
+      border: 3px solid white;
+      box-sizing: border-box;
+      width: 1920px;
+      height: auto;
+      background-color: #121212;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+    }
 
-        img {
-            border: 2px solid white;
-            border-radius: 50%;
-            width: 64px;
-        }
+    img {
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 64px;
+    }
 
-        table {
-            table-layout: fixed;
-            border-collapse: collapse;
-            border-spacing: 0;
-        }
+    table {
+      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
 
-        caption {
-            border-bottom: 3px solid #03DAC6;
-            padding: 15px;
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: #BB86FC;
-        }
+    caption {
+      border-bottom: 3px solid #03DAC6;
+      padding: 15px;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #BB86FC;
+    }
 
-        th,
-        td {
-            border: 1px solid #03DAC6;
-            padding: 10px;
-            text-align: center;
-            color: white;
-        }
+    th,
+    td {
+      border: 1px solid #03DAC6;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
 
-        th {
-            background-color: #010101;
-            font-size: 1.25rem;
-        }
+    th {
+      background-color: #010101;
+      font-size: 1.25rem;
+    }
 
-        td {
-            height: 64px;
-        }
+    td {
+      height: 64px;
+    }
 
-        .availability {
-            width: calc(90%/7);
-        }
+    .availability {
+      width: calc(90%/7);
+    }
 
-        .timeslot {
-            width: 10%;
-            background-color: #232323;
-        }
+    .timeslot {
+      width: 10%;
+      background-color: #232323;
+    }
 
-        tr:last-child>td>img {
-            filter: blur(2px);
-        }
+    tr:last-child>td>img {
+      filter: blur(2px);
+    }
 
-        tr:last-child>td {
-            background-color: #CF6679;
-        }
+    tr:last-child>td {
+      background-color: #CF6679;
+    }
 
 
-        tr:last-child>td:last-child {
-            background-color: #9C3346;
-        }
-    </style>
+    tr:last-child>td:last-child {
+      background-color: #9C3346;
+    }
+  </style>
 </head>
 
 <body>
-    <table width=100%>
-        <caption>
-            Availability for week {{weekData.weekNumber}} ({{weekData.weekStart}} to {{weekData.weekEnd}})
-        </caption>
-        <tr>
-            <th>MONDAY</th>
-            <th>TUESDAY</th>
-            <th>WEDNESDAY</th>
-            <th>THURSDAY</th>
-            <th>FRIDAY</th>
-            <th>SATURDAY</th>
-            <th>SUNDAY</th>
-            <th>TIME</th>
-        </tr>
-        {{#each availability}}
-        <tr>
-            {{#each this}}
-            {{#unless @last}}
-            <td class="availability">
-                {{#each this}}
-                <img src='{{this}}'>
-                {{/each}}
-            </td>
-            {{else}}
-            <td class="timeslot">
-                {{this}}
-            </td>
-            {{/unless}}
-            {{/each}}
-        </tr>
+  <table width=100%>
+    <caption>
+      Availability for week {{weekData.weekNumber}} ({{weekData.weekStart}} to {{weekData.weekEnd}})
+    </caption>
+    <tr>
+      <th>MONDAY</th>
+      <th>TUESDAY</th>
+      <th>WEDNESDAY</th>
+      <th>THURSDAY</th>
+      <th>FRIDAY</th>
+      <th>SATURDAY</th>
+      <th>SUNDAY</th>
+      <th>TIME</th>
+    </tr>
+    {{#each availability}}
+    <tr>
+      {{#each this}}
+      {{#unless @last}}
+      <td class="availability">
+        {{#each this}}
+        <img src='{{this}}'>
         {{/each}}
-    </table>
+      </td>
+      {{else}}
+      <td class="timeslot">
+        {{this}}
+      </td>
+      {{/unless}}
+      {{/each}}
+    </tr>
+    {{/each}}
+  </table>
 </body>
 
 </html>
